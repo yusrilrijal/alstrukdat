@@ -1,0 +1,49 @@
+class Mahasiswa:
+    def _init_(self, nim, nama, jenis_kelamin, berkebutuhan_khusus=False):
+        self.nim = nim
+        self.nama = nama
+        self.jenis_kelamin = jenis_kelamin
+        self.berkebutuhan_khusus = berkebutuhan_khusus
+
+class ProgramAdmisi:
+    def _init_(self):
+        self.mahasiswa = []
+
+    def tambah_mahasiswa(self, mahasiswa):
+        self.mahasiswa.append(mahasiswa)
+
+    def hapus_mahasiswa(self, nim):
+        self.mahasiswa = [m for m in self.mahasiswa if m.nim != nim]
+
+    def tampilkan_semua_mahasiswa(self):
+        print("Daftar Mahasiswa:")
+        for m in self.mahasiswa:
+            print(f"NIM: {m.nim}, Nama: {m.nama}, Jenis Kelamin: {m.jenis_kelamin}, Berkebutuhan Khusus: {m.berkebutuhan_khusus}")
+
+    def tampilkan_mahasiswa_berkebutuhan_khusus(self):
+        print("Daftar Mahasiswa Berkebutuhan Khusus:")
+        for m in self.mahasiswa:
+            if m.berkebutuhan_khusus:
+                print(f"NIM: {m.nim}, Nama: {m.nama}, Jenis Kelamin: {m.jenis_kelamin}, Berkebutuhan Khusus: {m.berkebutuhan_khusus}")
+
+program_admisi = ProgramAdmisi()
+
+while True:
+    print()
+    print("="*50)
+    print("Program Admisi Prodi Sains Data")
+    print("-"*50)
+    print("1. Tambah Data")
+    print("2. Hapus Data")
+    print("3. Tampilkan Semua Data")
+    print("4. Tampilkan Hanya penyandang disabilitas")
+    print("5. Keluar")
+    pilihan = int(input("Masukkan pilihan Anda: "))
+
+    if pilihan == 1:
+        nim = int(input("Masukkan NIM: "))
+        nama = input("Masukkan Nama: ")
+        jenis_kelamin = input("Masukkan Jenis Kelamin (L/P): ")
+        bk = bool(input("Berkebutuhan Khusus (YES/NO): "))
+    else : 
+         bk = bool(input("Berkebutuhan Khusus (YES/NO): "))
